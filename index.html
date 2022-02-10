@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Online Banking</title>
     <script src="https://cdn.tailwindcss.com"></script>
+
 </head>
 
 <body>
@@ -17,15 +18,15 @@
         <section class="bg-slate-300 w-3/4 mx-auto mt-10 ">
             <h3 class="text-2xl mb-5 text-center">please login</h3>
             <div class="align-baseline ">
-                <input class="block mb-3 mx-auto  p-1 border-2 border-red-700 w-3/4" type="text"
+                <input id="user-email" class="block mb-3 mx-auto  p-1 border-2 border-red-700 w-3/4" type="text"
                     placeholder="your Email">
-                <input class="block border-2 mb-3 mx-auto p-1 border-red-700 w-3/4" type="password"
+                <input id="user-password" class="block border-2 mb-3 mx-auto p-1 border-red-700 w-3/4" type="password"
                     placeholder="your password">
-                <button class="block rounded bg-red-700 px-4 mx-auto p-1 text-[#ffffff]">Submit</button>
+                <button id="submit-btn" class="block rounded bg-red-700 px-4 mx-auto p-1 text-[#ffffff]">Submit</button>
             </div>
         </section>
     </main>
-
+    <script src="./js/bank.js"></script>
 </body>
 
 </html>
