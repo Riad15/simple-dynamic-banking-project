@@ -1,41 +1,48 @@
-//--------------deposite money--------------------- 
+//--------------input function--------------------- 
 function inputFunction(inputId) {
     const inputValue = document.getElementById(inputId);
-    const inputAmount = inputValue.value;
+    const inputAmount = parseFloat(inputValue.value);
     inputValue.value = '';
     return inputAmount;
 }
+//----------------moneyTransaction function------------------------- 
+function moneyTransaction(transactionMoney, inputFildMoney) {
+    const totalTransaction = document.getElementById(transactionMoney);
+    const lastTotalTransaction = parseFloat(totalTransaction.innerText);
+    const updateTotalTransaction = lastTotalTransaction + inputFildMoney;
+    totalTransaction.innerText = updateTotalTransaction;
+}
+
+//----------------add Ebent listener Button----------------------------
 document.getElementById('deposite-btn').addEventListener('click', function () {
 
+    //---------deposite money input function call--------------------
     const addDepositeAmount = inputFunction('deposite-amount');
-    const depsiteTotal = document.getElementById('deposite-total');
-    const privusDepositeTotal = depsiteTotal.innerText;
-    const updateDepositeTotal = parseFloat(privusDepositeTotal) + parseFloat(addDepositeAmount);
-    depsiteTotal.innerText = updateDepositeTotal;
+
+    //-----------------deposite money function call -------------------
+    moneyTransaction('deposite-total', addDepositeAmount);
 
     //------------total balance update ---------------------------
     const totalBalance = document.getElementById('my-acount');
     const lastBalance = totalBalance.innerText;
     updateBalance = parseFloat(addDepositeAmount) + parseFloat(lastBalance);
     totalBalance.innerText = updateBalance;
-
-
 })
+
 //-----------------------------withdraw money-------------------------
 document.getElementById('withdraw-btn').addEventListener('click', function () {
+
+    //-----------------withdraw input function call ---------------------
     const nextWithdraw = inputFunction('Withdraw-amount');
-    const totalwithdraw = document.getElementById('withdraw-total');
-    const lastWithdraw = totalwithdraw.innerText;
-    const updateWithdraw = parseFloat(nextWithdraw) + parseFloat(lastWithdraw);
-    totalwithdraw.innerText = updateWithdraw;
+
+    //------------------withdraw money function call---------------------
+    moneyTransaction('withdraw-total', nextWithdraw);
 
     // update my acount 
-
     const totalBalance = document.getElementById('my-acount');
     const lastBalance = totalBalance.innerText;
-    updateBalance = parseFloat(lastBalance) - parseFloat(nextWithdraw);
+    updateBalance = parseFloat(lastBalance) - nextWithdraw;
     totalBalance.innerText = updateBalance;
-
 })
 //------------------------balance dynamic----------------------
 
